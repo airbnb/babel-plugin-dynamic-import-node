@@ -1,8 +1,8 @@
 const MODULE = 'test-module';
 
-new Promise(resolve => {
-  resolve(require(MODULE));
+Promise.resolve().then(() => {
+  return require(MODULE);
 });
-new Promise(resolve => {
-  resolve(require(`test-${ MODULE }`));
+Promise.resolve().then(() => {
+  return require(`test-${ MODULE }`);
 });

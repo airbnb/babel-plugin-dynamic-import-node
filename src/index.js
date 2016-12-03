@@ -4,9 +4,9 @@ import syntax from 'babel-plugin-syntax-dynamic-import';
 const TYPE_IMPORT = 'Import';
 
 const buildImport = template(`
-  (new Promise(resolve => {
-    resolve(require(SOURCE));
-  }))
+  Promise.resolve().then(() => {
+    return require(SOURCE);
+  })
 `);
 
 export default () => ({

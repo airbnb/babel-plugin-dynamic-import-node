@@ -1,3 +1,3 @@
-const testModule = new Promise(resolve => {
-  resolve(require('test-module'));
+const testModule = Promise.resolve().then(() => {
+  return require('test-module');
 });

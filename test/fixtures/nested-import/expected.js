@@ -1,6 +1,6 @@
 function getModule(path) {
-  return new Promise(resolve => {
-    resolve(require('test-module'));
+  return Promise.resolve().then(() => {
+    return require('test-module');
   });
 }
 
