@@ -1,5 +1,6 @@
 import template from 'babel-template';
 import syntax from 'babel-plugin-syntax-dynamic-import';
+import * as t from 'babel-types';
 
 const TYPE_IMPORT = 'Import';
 
@@ -13,8 +14,11 @@ export default () => ({
   visitor: {
     CallExpression(path) {
       if (path.node.callee.type === TYPE_IMPORT) {
+        const importArgument = path.node.arguments[0];
         const newImport = buildImport({
-          SOURCE: path.node.arguments,
+          SOURCE: (t.isStringLiteral(importArgument) || t.isTemplateLiteral(importArgument))
+            ? path.node.arguments
+            : t.templateLiteral([t.templateElement({ raw: '' }), t.templateElement({ raw: '' }, true)], path.node.arguments),
         });
         path.replaceWith(newImport);
       }
