@@ -57,7 +57,7 @@
   "dependencies": {
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-template": "^6.16.0",
-    "babel-types": "^6.19.0",
+    "babel-types": "^6.21.0",
     "in-publish": "^2.0.0"
   }
 }
