@@ -5,7 +5,7 @@ import * as t from 'babel-types';
 const TYPE_IMPORT = 'Import';
 
 const buildImport = template(`
-  Promise.resolve().then(() => require(SOURCE))
+  new Promise(resolve => resolve(require(SOURCE)));
 `);
 
 export default () => ({
