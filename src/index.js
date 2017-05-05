@@ -18,7 +18,7 @@ export default () => ({
         const newImport = buildImport({
           SOURCE: (t.isStringLiteral(importArgument) || t.isTemplateLiteral(importArgument))
             ? path.node.arguments
-            : t.templateLiteral([t.templateElement({ raw: '' }), t.templateElement({ raw: '' }, true)], path.node.arguments),
+            : t.templateLiteral([t.templateElement({ raw: '', cooked: '' }), t.templateElement({ raw: '', cooked: '' }, true)], path.node.arguments),
         });
         path.replaceWith(newImport);
       }

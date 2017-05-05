@@ -1,8 +1,9 @@
 import { transform } from 'babel-core';
 
-export default function testPlugin(code) {
+export default function testPlugin(code, presets, plugins) {
   const result = transform(code, {
-    plugins: ['./src/index.js'],
+    presets: [].concat(presets || []),
+    plugins: [].concat(plugins || [], './src/index.js'),
   });
 
   return result.code;
