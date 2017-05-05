@@ -1,5 +1,10 @@
 ## Unreleased
 
+## v1.0.2
+- [Fix] Ensure it works with the ES2015 preset too (#12, #16)
+- [Deps] update `babel-template`, `babel-types`
+- [Dev Deps] update `babel-cli`, `babel-core`, `babel-eslint`, `babel-register`, `eslint`, `eslint-config-airbnb-base`, `mocha`
+
 ## v1.0.1
 - [Fix] Move `in-publish` to devDeps (#11)
 - [Fix] ensure dynamic `import()` input is properly stringified (#2)
