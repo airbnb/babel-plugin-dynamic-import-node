@@ -22,6 +22,15 @@ describe('babel-plugin-dynamic-import-node', () => {
       expect(result.trim()).to.equal(expected.trim());
     });
 
+    it(`works with ${folderName} and the es2015 preset`, () => {
+      const result = testPlugin(
+        actual,
+        ['es2015'],
+        [[templates, { spec: true }]],
+      );
+      expect(result.trim()).to.equal(expectedES2015.trim());
+    });
+
     it(`works with ${folderName} and the env preset`, () => {
       const result = testPlugin(
         actual,
