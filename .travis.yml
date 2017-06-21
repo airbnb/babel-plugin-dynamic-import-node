@@ -1,5 +1,6 @@
 language: node_js
 node_js:
+  - "8"
   - "7"
   - "6"
   - "5"
@@ -22,6 +23,8 @@ matrix:
     - node_js: "node"
       env: LINT=true
   allow_failures:
+    - node_js: "7"
+    - node_js: "5"
     - node_js: "iojs-v3"
     - node_js: "iojs-v2"
     - node_js: "iojs-v1"
