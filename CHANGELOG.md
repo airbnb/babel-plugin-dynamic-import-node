@@ -1,5 +1,12 @@
 ## Unreleased
 
+## v1.1.0
+- Visit Import nodes instead of CallExpressions (#30)
+- [Deps] update `babel-template`, `babel-types`
+- [Dev Deps] update `airbnb-js-shims`, `babel-cli`, `babel-core`, `babel-preset-airbnb`, `babel-register`, `chai`, `eslint`, `eslint-config-airbnb-base`, `eslint-plugin-import`, `mocha`
+- [Tests] on `node` `v8`
+- [Tests] use `nvm install-latest-npm` so newer npm doesn’t break older node
+
 ## v1.0.2
 - [Fix] Ensure it works with the ES2015 preset too (#12, #16)
 - [Deps] update `babel-template`, `babel-types`
