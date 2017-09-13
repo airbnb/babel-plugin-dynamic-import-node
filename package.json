@@ -60,8 +60,6 @@
     "safe-publish-latest": "^1.1.1"
   },
   "dependencies": {
-    "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "babel-template": "^6.26.0",
-    "babel-types": "^6.26.0"
+    "babel-plugin-syntax-dynamic-import": "^6.18.0"
   }
 }
