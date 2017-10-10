@@ -7,7 +7,7 @@ Babel plugin to transpile `import()` to a deferred `require()`, for node. Matche
 ## Installation
 
 ```sh
-$ npm install babel-plugin-dynamic-import-node --save-dev
+npm install babel-plugin-dynamic-import-node --save-dev
 ```
 
 ## Usage
