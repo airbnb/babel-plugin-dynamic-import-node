@@ -11,8 +11,13 @@ export default function ({ template, types: t }) {
     visitor: {
       Import(path) {
         const importArguments = path.parentPath.node.arguments;
+        const isString = t.isStringLiteral(importArguments[0])
+                        || t.isTemplateLiteral(importArguments[0]);
+        if (isString) {
+          t.removeComments(importArguments[0]);
+        }
         const newImport = buildImport({
-          SOURCE: (t.isStringLiteral(importArguments[0]) || t.isTemplateLiteral(importArguments[0]))
+          SOURCE: (isString)
             ? importArguments
             : t.templateLiteral([
               t.templateElement({ raw: '', cooked: '' }),
