@@ -1,5 +1,11 @@
 ## Unreleased
 
+## v1.2.0
+- [New] support comments (#37)
+- [Refactor] Use template and types from the babel object (#32)
+- [Tests] on `node` `v9`; pin included builds to LTS
+- [Dev Deps] update `eslint`, `eslint-config-airbnb-base`, `mocha`, `rimraf`
+
 ## v1.1.0
 - Visit Import nodes instead of CallExpressions (#30)
 - [Deps] update `babel-template`, `babel-types`
