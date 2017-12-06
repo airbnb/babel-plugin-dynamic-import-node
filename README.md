@@ -35,3 +35,21 @@ require('babel-core').transform('code', {
   plugins: ['dynamic-import-node']
 });
 ```
+
+### Code Example
+```javascript
+Promise.all([
+      /* jshint ignore:start */
+      import('./lib/import1'),
+      import('./lib/import2')
+      /* jshint ignore:end */
+    ]).then(([
+      Import1,
+      Import2
+    ]) => {
+      console.log(Import1);
+      /* CODE HERE*/
+    });
+  }
+});
+```
