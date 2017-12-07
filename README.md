@@ -39,17 +39,13 @@ require('babel-core').transform('code', {
 ### Code Example
 ```javascript
 Promise.all([
-      /* jshint ignore:start */
-      import('./lib/import1'),
-      import('./lib/import2')
-      /* jshint ignore:end */
-    ]).then(([
-      Import1,
-      Import2
-    ]) => {
-      console.log(Import1);
-      /* CODE HERE*/
-    });
-  }
-});
+  import('./lib/import1'),
+  import('./lib/import2')
+ ]).then(([
+   Import1,
+   Import2
+  ]) => {
+   console.log(Import1);
+   /* CODE HERE*/
+  });
 ```
