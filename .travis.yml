@@ -12,6 +12,7 @@ node_js:
   - "iojs-v2"
   - "iojs-v1"
   - "0.12"
+  - "10"
 before_install:
   - 'nvm install-latest-npm'
 install:
