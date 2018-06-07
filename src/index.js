@@ -1,9 +1,7 @@
 import syntax from 'babel-plugin-syntax-dynamic-import';
 
 export default function ({ template, types: t }) {
-  const buildImport = template(`
-    Promise.resolve().then(() => require(SOURCE))
-  `);
+  const buildImport = template('Promise.resolve().then(() => MODULE)');
 
   return {
     inherits: syntax,
@@ -11,18 +9,23 @@ export default function ({ template, types: t }) {
     visitor: {
       Import(path) {
         const importArguments = path.parentPath.node.arguments;
-        const isString = t.isStringLiteral(importArguments[0])
-                        || t.isTemplateLiteral(importArguments[0]);
+        const [importPath] = importArguments;
+        const isString = t.isStringLiteral(importPath) || t.isTemplateLiteral(importPath);
         if (isString) {
-          t.removeComments(importArguments[0]);
+          t.removeComments(importPath);
         }
+        const SOURCE = isString
+          ? importArguments
+          : t.templateLiteral([
+            t.templateElement({ raw: '', cooked: '' }),
+            t.templateElement({ raw: '', cooked: '' }, true),
+          ], importArguments);
+        const requireCall = t.callExpression(
+          t.identifier('require'),
+          [].concat(SOURCE),
+        );
         const newImport = buildImport({
-          SOURCE: (isString)
-            ? importArguments
-            : t.templateLiteral([
-              t.templateElement({ raw: '', cooked: '' }),
-              t.templateElement({ raw: '', cooked: '' }, true),
-            ], importArguments),
+          MODULE: t.callExpression(this.addHelper('interopRequireWildcard'), [requireCall]),
         });
         path.parentPath.replaceWith(newImport);
       },
