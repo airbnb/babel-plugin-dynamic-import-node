@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import test from 'tape';
 import { join } from 'path';
 import { readdirSync, statSync, readFileSync } from 'fs';
 import templates from 'babel-plugin-transform-es2015-template-literals';
@@ -11,33 +11,38 @@ const testFolders = readdirSync(FIXTURE_PATH).filter(file => (
   statSync(join(FIXTURE_PATH, file)).isDirectory()
 ));
 
-describe('babel-plugin-dynamic-import-node', () => {
+test('babel-plugin-dynamic-import-node', (t) => {
   testFolders.forEach((folderName) => {
     const actual = readFileSync(join(FIXTURE_PATH, folderName, 'actual.js'), 'utf8');
     const expected = readFileSync(join(FIXTURE_PATH, folderName, 'expected.js'), 'utf8');
     const expectedES2015 = readFileSync(join(FIXTURE_PATH, folderName, 'expected.es2015.js'), 'utf8');
 
-    it(`works with ${folderName}`, () => {
+    t.test(`works with ${folderName}`, (st) => {
       const result = testPlugin(actual);
-      expect(result.trim()).to.equal(expected.trim());
+      st.equal(result.trim(), expected.trim());
+      st.end();
     });
 
-    it(`works with ${folderName} and the es2015 preset`, () => {
+    t.test(`works with ${folderName} and the es2015 preset`, (st) => {
       const result = testPlugin(
         actual,
         ['es2015'],
         [[templates, { spec: true }]],
       );
-      expect(result.trim()).to.equal(expectedES2015.trim());
+      st.equal(result.trim(), expectedES2015.trim());
+      st.end();
     });
 
-    it(`works with ${folderName} and the env preset`, () => {
+    t.test(`works with ${folderName} and the env preset`, (st) => {
       const result = testPlugin(
         actual,
         ['env'],
         [[templates, { spec: true }]],
       );
-      expect(result.trim()).to.equal(expectedES2015.trim());
+      st.equal(result.trim(), expectedES2015.trim());
+      st.end();
     });
   });
+
+  t.end();
 });
