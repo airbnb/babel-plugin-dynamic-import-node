@@ -1,5 +1,13 @@
 ## Unreleased
 
+## v2.0.0
+- [Breaking] always return a module namespace object (#52, #47)
+- [Breaking] remove `.default` on entry points (#27)
+- [Docs] removed $ before npm command (#35)
+- [Docs] Improve README.md with a code example (#41)
+- [Dev Deps] update `airbnb-js-shims`, `babel-core`, `babel-eslint`, `eslint`, `eslint-plugin-import`
+- [Tests] switch from mocha to tape, so we can support older nodes
+
 ## v1.2.0
 - [New] support comments (#37)
 - [Refactor] Use template and types from the babel object (#32)
