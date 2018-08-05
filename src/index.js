@@ -24,8 +24,11 @@ export default function ({ template, types: t }) {
           t.identifier('require'),
           [].concat(SOURCE),
         );
+
+        const { noInterop = false } = this.opts;
+        const MODULE = noInterop === true ? requireCall : t.callExpression(this.addHelper('interopRequireWildcard'), [requireCall]);
         const newImport = buildImport({
-          MODULE: t.callExpression(this.addHelper('interopRequireWildcard'), [requireCall]),
+          MODULE,
         });
         path.parentPath.replaceWith(newImport);
       },

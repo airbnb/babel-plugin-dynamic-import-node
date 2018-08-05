@@ -16,10 +16,17 @@ test('babel-plugin-dynamic-import-node', (t) => {
     const actual = readFileSync(join(FIXTURE_PATH, folderName, 'actual.js'), 'utf8');
     const expected = readFileSync(join(FIXTURE_PATH, folderName, 'expected.js'), 'utf8');
     const expectedES2015 = readFileSync(join(FIXTURE_PATH, folderName, 'expected.es2015.js'), 'utf8');
+    const expectedNoInterop = readFileSync(join(FIXTURE_PATH, folderName, 'expected.noInterop.js'), 'utf8');
 
     t.test(`works with ${folderName}`, (st) => {
       const result = testPlugin(actual);
       st.equal(result.trim(), expected.trim());
+      st.end();
+    });
+
+    t.test(`works with ${folderName} and the 'noInterop': true option`, (st) => {
+      const result = testPlugin(actual, [], [], { noInterop: true });
+      st.equal(result.trim(), expectedNoInterop.trim());
       st.end();
     });
 
