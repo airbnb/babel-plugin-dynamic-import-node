@@ -1,5 +1,10 @@
 ## Unreleased
 
+## v2.1.0
+- [New] add `noInterop` option (#57)
+- [Docs] Fix typo "correct" -> "correctly" in readme (#55)
+- [Dev Deps] update `airbnb-js-shims`, `babel-eslint`, `babel-preset-airbnb`, `eslint`, `eslint-config-airbnb-base`, `eslint-plugin-import`, `safe-publish-latest`
+
 ## v2.0.0
 - [Breaking] always return a module namespace object (#52, #47)
 - [Breaking] remove `.default` on entry points (#27)
