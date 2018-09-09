@@ -19,7 +19,7 @@ test('babel-plugin-dynamic-import-node', (t) => {
   testFolders.forEach((folderName) => {
     const actual = readFileSync(join(FIXTURE_PATH, folderName, 'actual.js'), 'utf8');
     const expected = readFileSync(join(FIXTURE_PATH, folderName, 'expected.js'), 'utf8');
-    const expectedPresetEnv = readFileSync(join(FIXTURE_PATH, folderName, 'expected.es2015.js'), 'utf8');
+    const expectedPresetEnv = readFileSync(join(FIXTURE_PATH, folderName, 'expected.env.js'), 'utf8');
     const expectedNoInterop = readFileSync(join(FIXTURE_PATH, folderName, 'expected.noInterop.js'), 'utf8');
 
     t.test(`works with ${folderName}`, (st) => {
