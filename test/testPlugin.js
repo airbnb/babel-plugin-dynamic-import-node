@@ -1,4 +1,4 @@
-import { transform } from 'babel-core';
+import { transform } from '@babel/core';
 
 export default function testPlugin(code, presets, plugins, options = {}) {
   const result = transform(code, {

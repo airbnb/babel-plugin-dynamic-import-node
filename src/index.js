@@ -1,13 +1,13 @@
-export default function ({ template, types: t }) {
+import { declare } from '@babel/helper-plugin-utils';
+import syntax from '@babel/plugin-syntax-dynamic-import';
+
+export default declare(({ assertVersion, template, types: t }) => {
+  assertVersion(7);
+
   const buildImport = template('Promise.resolve().then(() => MODULE)');
 
   return {
-    // NOTE: Once we drop support for Babel <= v6 we should
-    // update this to import from @babel/plugin-syntax-dynamic-import.
-    // https://www.npmjs.com/package/@babel/plugin-syntax-dynamic-import
-    manipulateOptions(opts, parserOpts) {
-      parserOpts.plugins.push('dynamicImport');
-    },
+    inherits: syntax,
 
     visitor: {
       Import(path) {
@@ -37,4 +37,4 @@ export default function ({ template, types: t }) {
       },
     },
   };
-}
+});

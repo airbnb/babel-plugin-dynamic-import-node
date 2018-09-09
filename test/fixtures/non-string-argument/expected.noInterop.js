@@ -1,4 +1,6 @@
-Promise.resolve().then(() => require(`${{ 'answer': 42 }}`));
+Promise.resolve().then(() => require(`${{
+  'answer': 42
+}}`));
 Promise.resolve().then(() => require(`${['foo', 'bar']}`));
 Promise.resolve().then(() => require(`${42}`));
 Promise.resolve().then(() => require(`${void 0}`));
