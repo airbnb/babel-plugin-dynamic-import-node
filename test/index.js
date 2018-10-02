@@ -17,6 +17,7 @@ test('babel-plugin-dynamic-import-node', (t) => {
     const expected = readFileSync(join(FIXTURE_PATH, folderName, 'expected.js'), 'utf8');
     const expectedES2015 = readFileSync(join(FIXTURE_PATH, folderName, 'expected.es2015.js'), 'utf8');
     const expectedNoInterop = readFileSync(join(FIXTURE_PATH, folderName, 'expected.noInterop.js'), 'utf8');
+    const expectedSync = readFileSync(join(FIXTURE_PATH, folderName, 'expected.sync.js'), 'utf8');
 
     t.test(`works with ${folderName}`, (st) => {
       const result = testPlugin(actual);
@@ -27,6 +28,12 @@ test('babel-plugin-dynamic-import-node', (t) => {
     t.test(`works with ${folderName} and the 'noInterop': true option`, (st) => {
       const result = testPlugin(actual, [], [], { noInterop: true });
       st.equal(result.trim(), expectedNoInterop.trim());
+      st.end();
+    });
+
+    t.test(`works with ${folderName} and the 'sync': true option`, (st) => {
+      const result = testPlugin(actual, [], [], { sync: true });
+      st.equal(result.trim(), expectedSync.trim());
       st.end();
     });
 
