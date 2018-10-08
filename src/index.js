@@ -1,10 +1,13 @@
-import syntax from 'babel-plugin-syntax-dynamic-import';
-
 export default function ({ template, types: t }) {
   const buildImport = template('Promise.resolve().then(() => MODULE)');
 
   return {
-    inherits: syntax,
+    // NOTE: Once we drop support for Babel <= v6 we should
+    // update this to import from @babel/plugin-syntax-dynamic-import.
+    // https://www.npmjs.com/package/@babel/plugin-syntax-dynamic-import
+    manipulateOptions(opts, parserOpts) {
+      parserOpts.plugins.push('dynamicImport');
+    },
 
     visitor: {
       Import(path) {

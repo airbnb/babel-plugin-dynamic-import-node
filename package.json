@@ -61,7 +61,6 @@
     "tape": "^4.9.1"
   },
   "dependencies": {
-    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "object.assign": "^4.1.0"
   }
 }
