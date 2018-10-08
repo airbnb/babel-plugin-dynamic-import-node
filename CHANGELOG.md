@@ -1,5 +1,9 @@
 ## Unreleased
 
+## v2.2.0
+- [Refactor] remove dependency on babel-plugin-syntax-dynamic-import
+- [Dev Deps] update `airbnb-js-shims`, `babel-preset-airbnb`, `eslint`
+
 ## v2.1.0
 - [New] add `noInterop` option (#57)
 - [Docs] Fix typo "correct" -> "correctly" in readme (#55)
