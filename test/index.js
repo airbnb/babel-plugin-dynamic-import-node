@@ -11,6 +11,10 @@ const testFolders = readdirSync(FIXTURE_PATH).filter(file => (
   statSync(join(FIXTURE_PATH, file)).isDirectory()
 ));
 
+function normalize(output) {
+  return output.replace(/function _interopRequireWildcard\(obj\) {.*}(\s*)/, 'function _interopRequireWildcard(obj) { [elided code] }$1').trim();
+}
+
 test('babel-plugin-dynamic-import-node', (t) => {
   testFolders.forEach((folderName) => {
     const actual = readFileSync(join(FIXTURE_PATH, folderName, 'actual.js'), 'utf8');
@@ -20,13 +24,13 @@ test('babel-plugin-dynamic-import-node', (t) => {
 
     t.test(`works with ${folderName}`, (st) => {
       const result = testPlugin(actual);
-      st.equal(result.trim(), expected.trim());
+      st.equal(normalize(result), normalize(expected));
       st.end();
     });
 
     t.test(`works with ${folderName} and the 'noInterop': true option`, (st) => {
       const result = testPlugin(actual, [], [], { noInterop: true });
-      st.equal(result.trim(), expectedNoInterop.trim());
+      st.equal(normalize(result), normalize(expectedNoInterop));
       st.end();
     });
 
@@ -36,7 +40,7 @@ test('babel-plugin-dynamic-import-node', (t) => {
         ['es2015'],
         [[templates, { spec: true }]],
       );
-      st.equal(result.trim(), expectedES2015.trim());
+      st.equal(normalize(result), normalize(expectedES2015));
       st.end();
     });
 
@@ -46,7 +50,7 @@ test('babel-plugin-dynamic-import-node', (t) => {
         ['env'],
         [[templates, { spec: true }]],
       );
-      st.equal(result.trim(), expectedES2015.trim());
+      st.equal(normalize(result), normalize(expectedES2015));
       st.end();
     });
   });
