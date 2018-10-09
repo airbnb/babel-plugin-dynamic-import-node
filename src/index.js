@@ -1,7 +1,7 @@
 import { declare } from '@babel/helper-plugin-utils';
 import syntax from '@babel/plugin-syntax-dynamic-import';
 
-export default declare(({ assertVersion, template, types: t }) => {
+export default declare(({ assertVersion, template, types: t }, { noInterop = false }) => {
   assertVersion(7);
 
   const buildImport = template('Promise.resolve().then(() => MODULE)');
@@ -28,7 +28,6 @@ export default declare(({ assertVersion, template, types: t }) => {
           [].concat(SOURCE),
         );
 
-        const { noInterop = false } = this.opts;
         const MODULE = noInterop === true ? requireCall : t.callExpression(this.addHelper('interopRequireWildcard'), [requireCall]);
         const newImport = buildImport({
           MODULE,
