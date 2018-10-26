@@ -22,6 +22,18 @@ npm install babel-plugin-dynamic-import-node --save-dev
 }
 ```
 
+#### Options
+
+- *`noInterop`* - A boolean value, that if true will not interop the require calls. Useful to avoid using `require('module').default` on commonjs modules.
+
+```json
+{
+  "plugins": [
+    ["dynamic-import-node", { "noInterop": true }]
+  ]
+}
+```
+
 ### Via CLI
 
 ```sh
