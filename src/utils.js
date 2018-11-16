@@ -18,7 +18,15 @@ export function createDynamicImportTransform({ template, types: t }) {
   const buildImport = template('Promise.resolve(SOURCE).then(s => INTEROP(require(s)))');
   const buildImportNoInterop = template('Promise.resolve(SOURCE).then(s => require(s))');
 
+  const visited = typeof WeakSet === 'function' && new WeakSet();
+
   return (context, path) => {
+    if (visited) {
+      if (visited.has(path)) {
+        return;
+      }
+      visited.add(path);
+    }
     const SOURCE = getImportSource(t, path.parent);
 
     const newImport = context.opts.noInterop
