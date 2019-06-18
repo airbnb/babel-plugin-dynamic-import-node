@@ -1,5 +1,9 @@
 ## Unreleased
 
+## v2.3.0
+- [New] expose createDynamicImportTransform and getImportSource (#75)
+- [Docs] Document noInterop option (#70)
+
 ## v2.2.0
 - [Refactor] remove dependency on babel-plugin-syntax-dynamic-import
 - [Dev Deps] update `airbnb-js-shims`, `babel-preset-airbnb`, `eslint`
