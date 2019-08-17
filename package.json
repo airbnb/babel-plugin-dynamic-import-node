@@ -59,8 +59,5 @@
     "rimraf": "^2.6.3",
     "safe-publish-latest": "^1.1.2",
     "tape": "^4.10.2"
-  },
-  "dependencies": {
-    "object.assign": "^4.1.0"
   }
 }
