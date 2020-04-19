@@ -3,8 +3,8 @@
 function _interopRequireWildcard(obj) {}
 
 function getModule(path) {
-  return Promise.resolve().then(function () {
-    return _interopRequireWildcard(require('test-module'));
+  return Promise.resolve('test-module').then(function (_) {
+    return _interopRequireWildcard(require(_));
   });
 }
 

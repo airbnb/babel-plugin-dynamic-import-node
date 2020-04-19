@@ -2,9 +2,9 @@
 
 function _interopRequireWildcard(obj) {}
 
-Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('my-module'));
+Promise.resolve('my-module').then(function (_) {
+  return _interopRequireWildcard(require(_));
 });
-Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('my-module'));
+Promise.resolve('my-module').then(function (_) {
+  return _interopRequireWildcard(require(_));
 });

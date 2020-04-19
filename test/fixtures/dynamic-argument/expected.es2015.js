@@ -4,9 +4,9 @@ function _interopRequireWildcard(obj) {}
 
 var MODULE = Object('test-module');
 
-Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('' + String(MODULE)));
+Promise.resolve('' + String(MODULE)).then(function (_) {
+  return _interopRequireWildcard(require(_));
 });
-Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('test-' + String(MODULE)));
+Promise.resolve('test-' + String(MODULE)).then(function (_) {
+  return _interopRequireWildcard(require(_));
 });

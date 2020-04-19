@@ -1,4 +1,4 @@
 const MODULE = Object('test-module');
 
-Promise.resolve().then(() => require(`${MODULE}`));
-Promise.resolve().then(() => require(`test-${MODULE}`));
+Promise.resolve(`${MODULE}`).then(_ => require(_));
+Promise.resolve(`test-${MODULE}`).then(_ => require(_));

@@ -2,27 +2,27 @@
 
 function _interopRequireWildcard(obj) {}
 
-Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('' + String({ 'answer': 42 })));
+Promise.resolve('' + String({ 'answer': 42 })).then(function (_) {
+  return _interopRequireWildcard(require(_));
 });
-Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('' + String(['foo', 'bar'])));
+Promise.resolve('' + String(['foo', 'bar'])).then(function (_) {
+  return _interopRequireWildcard(require(_));
 });
-Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('' + 42));
+Promise.resolve('' + 42).then(function (_) {
+  return _interopRequireWildcard(require(_));
 });
-Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('' + String(void 0)));
+Promise.resolve('' + String(void 0)).then(function (_) {
+  return _interopRequireWildcard(require(_));
 });
-Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('' + String(undefined)));
+Promise.resolve('' + String(undefined)).then(function (_) {
+  return _interopRequireWildcard(require(_));
 });
-Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('' + String(null)));
+Promise.resolve('' + String(null)).then(function (_) {
+  return _interopRequireWildcard(require(_));
 });
-Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('' + String(true)));
+Promise.resolve('' + String(true)).then(function (_) {
+  return _interopRequireWildcard(require(_));
 });
-Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('' + String(Symbol())));
+Promise.resolve('' + String(Symbol())).then(function (_) {
+  return _interopRequireWildcard(require(_));
 });

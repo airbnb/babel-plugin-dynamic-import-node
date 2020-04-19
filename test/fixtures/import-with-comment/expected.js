@@ -1,4 +1,4 @@
 function _interopRequireWildcard(obj) {}
 
-Promise.resolve().then(() => _interopRequireWildcard(require('my-module')));
-Promise.resolve().then(() => _interopRequireWildcard(require('my-module')));
+Promise.resolve('my-module').then(_ => _interopRequireWildcard(require(_)));
+Promise.resolve('my-module').then(_ => _interopRequireWildcard(require(_)));

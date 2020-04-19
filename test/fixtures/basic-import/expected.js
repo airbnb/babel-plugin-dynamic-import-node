@@ -1,3 +1,3 @@
 function _interopRequireWildcard(obj) {}
 
-const testModule = Promise.resolve().then(() => _interopRequireWildcard(require('test-module')));
+const testModule = Promise.resolve('test-module').then(_ => _interopRequireWildcard(require(_)));

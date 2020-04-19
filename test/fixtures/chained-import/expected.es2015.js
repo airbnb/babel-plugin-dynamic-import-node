@@ -2,18 +2,18 @@
 
 function _interopRequireWildcard(obj) {}
 
-Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('test-module'));
+Promise.resolve('test-module').then(function (_) {
+  return _interopRequireWildcard(require(_));
 }).then(function () {
-  return Promise.resolve().then(function () {
-    return _interopRequireWildcard(require('test-module-2'));
+  return Promise.resolve('test-module-2').then(function (_) {
+    return _interopRequireWildcard(require(_));
   });
 });
 
-Promise.all([Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('test-1'));
-}), Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('test-2'));
-}), Promise.resolve().then(function () {
-  return _interopRequireWildcard(require('test-3'));
+Promise.all([Promise.resolve('test-1').then(function (_) {
+  return _interopRequireWildcard(require(_));
+}), Promise.resolve('test-2').then(function (_) {
+  return _interopRequireWildcard(require(_));
+}), Promise.resolve('test-3').then(function (_) {
+  return _interopRequireWildcard(require(_));
 })]).then(function () {});

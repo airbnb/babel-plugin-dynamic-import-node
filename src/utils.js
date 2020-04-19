@@ -15,19 +15,16 @@ export function getImportSource(t, callNode) {
 }
 
 export function createDynamicImportTransform({ template, types: t }) {
-  const buildImport = template('Promise.resolve().then(() => MODULE)');
+  const buildImport = template('Promise.resolve(SOURCE).then(_ => INTEROP(require(_)))');
+  const buildImportNoInterop = template('Promise.resolve(SOURCE).then(_ => require(_))');
 
   return (context, path) => {
-    const requireCall = t.callExpression(
-      t.identifier('require'),
-      [getImportSource(t, path.parent)],
-    );
+    const SOURCE = getImportSource(t, path.parent);
 
-    const { noInterop = false } = context.opts;
-    const MODULE = noInterop === true ? requireCall : t.callExpression(context.addHelper('interopRequireWildcard'), [requireCall]);
-    const newImport = buildImport({
-      MODULE,
-    });
+    const newImport = context.opts.noInterop
+      ? buildImportNoInterop({ SOURCE })
+      : buildImport({ SOURCE, INTEROP: context.addHelper('interopRequireWildcard') });
+
     path.parentPath.replaceWith(newImport);
   };
 }

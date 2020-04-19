@@ -1,4 +1,5 @@
 ## Unreleased
+- [Fix] Evaluate `import()` argument synchronously (#85)
 - [Dev Deps] update `eslint`, `eslint-config-airbnb-base`, `in-publish`, `rimraf`, `safe-publish-latest`, `tape`
 
 ## v2.3.0
