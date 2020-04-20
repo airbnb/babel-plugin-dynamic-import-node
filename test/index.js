@@ -7,7 +7,7 @@ import testPlugin from './testPlugin';
 
 const FIXTURE_PATH = join(__dirname, 'fixtures');
 
-const testFolders = readdirSync(FIXTURE_PATH).filter(file => (
+const testFolders = readdirSync(FIXTURE_PATH).filter((file) => (
   statSync(join(FIXTURE_PATH, file)).isDirectory()
 ));
 

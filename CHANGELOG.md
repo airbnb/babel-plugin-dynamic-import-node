@@ -1,4 +1,5 @@
 ## Unreleased
+- [Dev Deps] update `eslint`, `eslint-config-airbnb-base`, `in-publish`, `rimraf`, `safe-publish-latest`, `tape`
 
 ## v2.3.0
 - [New] expose createDynamicImportTransform and getImportSource (#75)
