@@ -15,8 +15,8 @@ export function getImportSource(t, callNode) {
 }
 
 export function createDynamicImportTransform({ template, types: t }) {
-  const buildImport = template('Promise.resolve(SOURCE).then(_ => INTEROP(require(_)))');
-  const buildImportNoInterop = template('Promise.resolve(SOURCE).then(_ => require(_))');
+  const buildImport = template('Promise.resolve(SOURCE).then(s => INTEROP(require(s)))');
+  const buildImportNoInterop = template('Promise.resolve(SOURCE).then(s => require(s))');
 
   return (context, path) => {
     const SOURCE = getImportSource(t, path.parent);

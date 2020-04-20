@@ -1,4 +1,5 @@
 ## Unreleased
+- [Fix] avoid using reserved param name in babel 7 templates
 
 ## v2.3.1
 - [Fix] Evaluate `import()` argument synchronously (#85)
