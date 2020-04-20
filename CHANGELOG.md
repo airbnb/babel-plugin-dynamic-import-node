@@ -1,4 +1,6 @@
 ## Unreleased
+
+## v2.3.2
 - [Fix] avoid using reserved param name in babel 7 templates
 - [Dev Deps] update `airbnb-js-shims`
 
