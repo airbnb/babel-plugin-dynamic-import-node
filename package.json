@@ -46,7 +46,7 @@
     "@babel/plugin-external-helpers": "^7.8.3",
     "@babel/plugin-transform-template-literals": "^7.8.3",
     "@babel/preset-env": "^7.9.5",
-    "airbnb-js-shims": "^2.2.0",
+    "airbnb-js-shims": "^2.2.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^9.0.0",

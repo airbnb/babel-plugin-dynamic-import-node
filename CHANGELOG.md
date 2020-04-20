@@ -1,5 +1,6 @@
 ## Unreleased
 - [Fix] avoid using reserved param name in babel 7 templates
+- [Dev Deps] update `airbnb-js-shims`
 
 ## v2.3.1
 - [Fix] Evaluate `import()` argument synchronously (#85)
