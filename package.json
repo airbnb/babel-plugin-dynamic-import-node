@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-dynamic-import-node",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "Babel plugin to transpile import() to a deferred require(), for node",
   "main": "lib/index.js",
   "directories": {

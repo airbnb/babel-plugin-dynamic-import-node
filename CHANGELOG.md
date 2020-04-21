@@ -1,5 +1,9 @@
 ## Unreleased
 
+## v2.3.3
+- [Fix] Generate webpack-compatible output with static string arg (#84)
+- [Fix] Handle visiting the same path gracefully (#71)
+
 ## v2.3.2
 - [Fix] avoid using reserved param name in babel 7 templates
 - [Dev Deps] update `airbnb-js-shims`
