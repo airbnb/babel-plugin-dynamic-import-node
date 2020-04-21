@@ -1,1 +1,1 @@
-const testModule = Promise.resolve('test-module').then(s => babelHelpers.interopRequireWildcard(require(s)));
+const testModule = Promise.resolve().then(() => babelHelpers.interopRequireWildcard(require('test-module')));

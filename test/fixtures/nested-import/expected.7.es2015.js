@@ -1,6 +1,6 @@
 function getModule(path) {
-  return Promise.resolve('test-module').then(function (s) {
-    return babelHelpers.interopRequireWildcard(require(s));
+  return Promise.resolve().then(function () {
+    return babelHelpers.interopRequireWildcard(require('test-module'));
   });
 }
 

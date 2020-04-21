@@ -1,3 +1,3 @@
-var testModule = Promise.resolve('test-module').then(function (s) {
-  return babelHelpers.interopRequireWildcard(require(s));
+var testModule = Promise.resolve().then(function () {
+  return babelHelpers.interopRequireWildcard(require('test-module'));
 });

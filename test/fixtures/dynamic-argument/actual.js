@@ -1,4 +1,10 @@
-const MODULE = Object('test-module');
-
 import(MODULE);
-import(`test-${MODULE}`);
+
+let i = 0;
+import(i++);
+
+import(fn());
+
+async () => import(await "x");
+
+function* f() { import(yield "x"); }

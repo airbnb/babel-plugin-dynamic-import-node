@@ -1,5 +1,5 @@
 function getModule(path) {
-  return Promise.resolve('test-module').then(s => require(s));
+  return Promise.resolve().then(() => require('test-module'));
 }
 
 getModule().then(() => {});

@@ -1,5 +1,5 @@
 function getModule(path) {
-  return Promise.resolve('test-module').then(s => babelHelpers.interopRequireWildcard(require(s)));
+  return Promise.resolve().then(() => babelHelpers.interopRequireWildcard(require('test-module')));
 }
 
 getModule().then(() => {});

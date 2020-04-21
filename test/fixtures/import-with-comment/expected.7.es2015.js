@@ -1,6 +1,6 @@
-Promise.resolve('my-module').then(function (s) {
-  return babelHelpers.interopRequireWildcard(require(s));
+Promise.resolve().then(function () {
+  return babelHelpers.interopRequireWildcard(require('my-module'));
 });
-Promise.resolve('my-module').then(function (s) {
-  return babelHelpers.interopRequireWildcard(require(s));
+Promise.resolve().then(function () {
+  return babelHelpers.interopRequireWildcard(require('my-module'));
 });

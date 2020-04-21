@@ -80,7 +80,9 @@ test('babel-plugin-dynamic-import-node', (t) => {
         st.end();
       });
 
-      if (version === 6 && !process.env.OVERWRITE) {
+      if (version === 6 && !process.env.OVERWRITE
+        // The es2015 and env presets have two different output with async functions
+        && folderName !== 'dynamic-argument') {
         t.test(`babel ${version} - works with ${folderName} and the es2015 preset`, (st) => {
           const result = testPlugin(
             version,

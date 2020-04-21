@@ -1,2 +1,2 @@
-Promise.resolve('my-module').then(s => require(s));
-Promise.resolve('my-module').then(s => require(s));
+Promise.resolve().then(() => require('my-module'));
+Promise.resolve().then(() => require('my-module'));
