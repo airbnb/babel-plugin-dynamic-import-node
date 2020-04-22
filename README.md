@@ -4,6 +4,8 @@ Babel plugin to transpile `import()` to a deferred `require()`, for node. Matche
 
 **NOTE:** Babylon >= v6.12.0 is required to correctly parse dynamic imports.
 
+**NOTE:** This plugin generates code compatible with Node.js. Webpack >= 2 supports `import()` natively, and for Webpack 1 you can use [`babel-plugin-dynamic-import-webpack`](https://github.com/airbnb/babel-plugin-dynamic-import-webpack) that generates Webpack-compatible output.
+
 ## Installation
 
 ```sh
